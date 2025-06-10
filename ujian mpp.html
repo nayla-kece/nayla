@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Clone UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Billabong&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fafafa;
+      color: #262626;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 12px 20px;
+      border-bottom: 1px solid #dbdbdb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Billabong', cursive;
+      font-size: 32px;
+    }
+
+    .search-bar {
+      padding: 6px 12px;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      width: 150px;
+    }
+
+    .nav-icons img {
+      width: 24px;
+      margin-left: 16px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .stories {
+      display: flex;
+      overflow-x: auto;
+      background: #fff;
+      padding: 12px;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      gap: 12px;
+    }
+
+    .story {
+      text-align: center;
+      flex: 0 0 auto;
+      cursor: pointer;
+    }
+
+    .story img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid #c13584;
+      padding: 2px;
+    }
+
+    .story span {
+      display: block;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .post {
+      background-color: #fff;
+      margin-top: 20px;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .post-header img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post img.post-image {
+      width: 100%;
+      display: block;
+    }
+
+    .post-icons {
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .post-icons img {
+      width: 28px;
+      margin-right: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .post-icons img.liked {
+      filter: invert(34%) sepia(93%) saturate(2859%) hue-rotate(329deg) brightness(95%) contrast(102%);
+    }
+
+    .caption {
+      padding: 0 12px 12px 12px;
+      font-size: 14px;
+    }
+
+    .caption strong {
+      margin-right: 5px;
+    }
+
+    /* Story Modal */
+    .story-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      flex-direction: column;
+    }
+
+    .story-modal img {
+      max-height: 80vh;
+      border-radius: 12px;
+    }
+
+    .story-modal .close-btn {
+      color: white;
+      font-size: 30px;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      cursor: pointer;
+      background: rgba(0,0,0,0.4);
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Instagram</div>
+    <input type="text" class="search-bar" placeholder="Search">
+    <div class="nav-icons">
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/home.png" alt="Home"/>
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/like--v1.png" alt="Like"/>
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="Profile"/>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="stories">
+      <div class="story" data-story="erika.jpg">
+        <img src="erika.jpg" alt="Erika">
+        <span>erika</span>
+      </div>
+      <div class="story" data-story="ami.jpg">
+        <img src="ami.jpg" alt="Ami">
+        <span>ami</span>
+      </div>
+      <div class="story" data-story="eza.jpg">
+        <img src="eza.jpg" alt="Eza">
+        <span>eza</span>
+      </div>
+    </div>
+
+    <!-- Post Contoh -->
+    <div class="post" id="post1">
+      <div class="post-header">
+        <img src="nayla.jpg" alt="nayla" />
+        <strong>nayla</strong>
+      </div>
+      <img class="post-image" src="sunset.jpg" alt="Post" />
+      <div class="post-icons">
+        <img class="like-btn" src="https://img.icons8.com/ios-glyphs/30/000000/like--v1.png" />
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/speech-bubble--v1.png" />
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/paper-plane.png" />
+      </div>
+      <div class="caption"><strong>Mike</strong> Beautiful sunset in Batam! 🌅</div>
+    </div>
+  </div>
+
+  <!-- Modal for Story -->
+  <div class="story-modal" id="storyModal">
+    <span class="close-btn" onclick="closeStory()">×</span>
+    <img id="storyImage" src="" alt="Story">
+  </div>
+
+  <script>
+    // Like functionality
+    document.querySelectorAll('.like-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('liked');
+      });
+    });
+
+    // Story modal
+    const storyModal = document.getElementById('storyModal');
+    const storyImage = document.getElementById('storyImage');
+
+    document.querySelectorAll('.story').forEach(story => {
+      story.addEventListener('click', () => {
+        const storySrc = story.getAttribute('data-story');
+        storyImage.src = storySrc;
+        storyModal.style.display = 'flex';
+      });
+    });
+
+    function closeStory() {
+      storyModal.style.display = 'none';
+      storyImage.src = '';
+    }
+  </script>
+
+</body>
+</html>
