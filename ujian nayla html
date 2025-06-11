@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Clone UI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fafafa;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #dbdbdb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      font-family: 'Billabong', cursive;
+      font-size: 28px;
+      color: #262626;
+    }
+
+    .search-bar {
+      border: 1px solid #dbdbdb;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+
+    .nav-icons img {
+      width: 24px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .stories {
+      display: flex;
+      overflow-x: auto;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+
+    .story {
+      text-align: center;
+      margin-right: 15px;
+    }
+
+    .story img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #c13584;
+      padding: 2px;
+    }
+
+    .story span {
+      display: block;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .post {
+      background-color: #fff;
+      margin-top: 20px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .post-header img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post img {
+      width: 100%;
+      display: block;
+    }
+
+    .post-icons {
+      padding: 10px;
+    }
+
+    .post-icons img {
+      width: 24px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .caption {
+      padding: 0 10px 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Instagram</div>
+    <input type="text" class="search-bar" placeholder="Search">
+    <div class="nav-icons">
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/home.png" alt="Home"/>
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/like--v1.png" alt="Like"/>
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="Profile"/>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="stories">
+      <div class="story">
+        <img src="https://randomuser.me/api/portraits/women/1.jpg" />
+        <span>erika</span>
+      </div>
+      <div class="story">
+        <img src="https://randomuser.me/api/portraits/men/2.jpg" />
+        <span>amii</span>
+      </div>
+      <div class="story">
+        <img src="https://randomuser.me/api/portraits/women/3.jpg" />
+        <span>ezaa</span>
+      </div>
+      <!-- Tambah stories lainnya -->
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <img src="https://randomuser.me/api/portraits/men/4.jpg" />
+        <strong>Mike</strong>
+      </div>
+      <img src="https://source.unsplash.com/random/600x400?sig=1" alt="Post" />
+      <div class="post-icons">
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/like--v1.png"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/speech-bubble--v1.png"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/paper-plane.png"/>
+      </div>
+      <div class="caption">
+        <strong>Mike</strong> Beautiful sunset in Bali! 🌅
+      </div>
+    </div>
+
+    <!-- Tambah lebih banyak post di sini jika diinginkan -->
+
+  </div>
+
+</body>
+</html>
